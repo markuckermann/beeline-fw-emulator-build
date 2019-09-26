@@ -1,0 +1,12 @@
+pygame
+pytest
+pytest-benchmark
+numpy
+gmaps
+ipython
+astral
+geopy
+polyline
+requests
+protobuf
+commentjson
