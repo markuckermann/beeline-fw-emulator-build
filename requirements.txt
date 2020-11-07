@@ -4,9 +4,10 @@ pytest-benchmark
 numpy
 gmaps
 ipython
-astral
+astral==1.10.1
 geopy
 polyline
 requests
 protobuf
 commentjson
+cv2
