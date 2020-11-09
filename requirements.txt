@@ -10,4 +10,4 @@ polyline
 requests
 protobuf
 commentjson
-cv2
+opencv-python
