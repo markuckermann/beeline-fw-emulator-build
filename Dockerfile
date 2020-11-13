@@ -7,4 +7,5 @@ WORKDIR /home
 
 COPY requirements.txt /home
 
+RUN pip3 install --upgrade pip
 RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
