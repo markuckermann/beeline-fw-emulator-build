@@ -1,14 +1,21 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 RUN apt-get -y upgrade
-RUN apt-get update -y 
+
+# avoid stuck build due to user prompt
+ARG DEBIAN_FRONTEND=noninteractive
 
 # libgl1-mesa-dev required for opencv to run 
-RUN apt-get -y install mingw-w64 build-essential srecord python3 python3-pip git libgl1-mesa-dev
+RUN apt-get update -y && apt-get -y install mingw-w64 build-essential srecord python3.9 python3.9-dev python3.9-venv python3-wheel git libgl1-mesa-dev && apt-get clean
 
 WORKDIR /home
 
+# create and activate virtual environment
+RUN python3.9 -m venv /home/venv
+ENV VIRTUAL_ENV=/home/venv
+ENV PATH="/home/venv/bin:$PATH"
+
 COPY requirements.txt /home
 
-RUN pip3 install --upgrade pip
-RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
+RUN pip install --upgrade pip
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
