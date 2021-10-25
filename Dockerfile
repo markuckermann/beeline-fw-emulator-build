@@ -5,8 +5,8 @@ RUN apt-get -y upgrade
 # avoid stuck build due to user prompt
 ARG DEBIAN_FRONTEND=noninteractive
 
-# libgl1-mesa-dev required for opencv to run 
-RUN apt-get update -y && apt-get -y install mingw-w64 build-essential srecord python3.9 python3.9-dev python3.9-venv python3-wheel git libgl1-mesa-dev && apt-get clean
+# libgl1-mesa-dev and libglib2.0-0 required for opencv to run 
+RUN apt-get update -y && apt-get -y install mingw-w64 build-essential srecord python3.9 python3.9-dev python3.9-venv python3-wheel git libgl1-mesa-dev libglib2.0-0 && apt-get clean
 
 WORKDIR /home
 
