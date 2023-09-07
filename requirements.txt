@@ -11,4 +11,4 @@ polyline
 requests
 protobuf
 commentjson
-opencv-python
+opencv-python-headless
